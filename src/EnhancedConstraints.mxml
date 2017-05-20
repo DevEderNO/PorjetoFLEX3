@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:constraintColumns>
+		<mx:ConstraintColumn id="col1" width="33%" />
+		<mx:ConstraintColumn id="col2" width="33%" />
+		<mx:ConstraintColumn id="col3" width="33%" />
+	</mx:constraintColumns>
+	<mx:constraintRows>
+		<mx:ConstraintRow id="row1" height="50%"/>
+		<mx:ConstraintRow id="row2" height="50%"/>
+	</mx:constraintRows>
+	<mx:TextArea id="ta1" text="TextArea 1"
+				 left="col1:5" right="col1:5"
+				 top="row1:10" bottom="row1:20"
+				 fontSize="20"/>
+	<mx:TextArea id="ta2" text="TextArea 2"
+				 left="col1:5" right="col2:5"
+				 top="row2:10" bottom="row2:20"
+				 fontSize="20"
+				 color="white"/>
+	<mx:TextArea id="ta3" text="TextArea 3"
+				 left="col3:5" right="col3:5"
+				 top="row1:10" bottom="row2:10"
+				 fontSize="20"
+				 color="white"/>
+</mx:Application>
