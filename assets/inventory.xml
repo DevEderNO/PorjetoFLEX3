@@ -1,0 +1,10 @@
+<groceries>
+	<catName>Dairy</catName>
+	<prodName>Milk</prodName>
+	<imageName>../libs/Images/milk.jpg</imageName>
+	<cost>1.20</cost>
+	<listPrice>1.99</listPrice>
+	<isOrganic>true</isOrganic>
+	<isLowFat>true</isLowFat>
+	<description>Direct from California where cows are happiest!</description>
+</groceries>

@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" currentState="State1" layout="absolute">
-	<mx:Model id="groceryInventory">
-		<groceries>
-			<catName>Dairy</catName>
-			<prodName>Milk</prodName>
-			<imageName>../libs/Images/milk.jpg</imageName>
-			<cost>1.20</cost>
-			<listPrice>1.99</listPrice>
-			<isOrganic>true</isOrganic>
-			<isLowFat>true</isLowFat>
-			<description>Direct from California where cows are happiest!
-			</description>
-		</groceries>
-	</mx:Model>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" currentState="State1" layout="absolute" creationComplete="prodHandler(groceryInventory)">
+	<mx:Model id="groceryInventory" source="../assets/Inventory.xml"/>
+	<mx:Script>
+		<![CDATA[
+			import valueObjects.Products;
+			import valueObjects.ShoppingCart;
+			import valueObjects.ShoppingCartItem;
+			[Bindable]
+			public var cart:ShoppingCart = new ShoppingCart();
+			
+			[Bindable]
+			private var theProducts:Products;
+			private function prodHandler(theItems:Object):void{
+				theProducts = Products.buildProducts(theItems);
+				trace(theProducts);
+			}
+			
+			private function addToCart(products:Products):void{
+				var sci:ShoppingCartItem = new ShoppingCartItem(products);
+				cart.addItem(sci);
+			}
+			
+			
+		]]>
+	</mx:Script>
 	<mx:states>
 		<mx:State name="State1">
 			<mx:SetProperty name="width" target="{canvas1}" value="100%"/>
@@ -42,9 +53,9 @@
 		<mx:State name="expanded">
 			<mx:AddChild>
 				<mx:VBox x="200" width="100%">
-					<mx:Text text="{groceryInventory.description}" width="50%"/>
-					<mx:Label text="Certified Organic"/>
-					<mx:Label text="Low Fat"/>
+					<mx:Text text="{theProducts.description}" width="50%"/>
+					<mx:Label text="Certified Organic" visible="{theProducts.isOrganic}"/>
+					<mx:Label text="Low Fat" visible="{theProducts.isLowFat}"/>
 				</mx:VBox>
 			</mx:AddChild>
 		</mx:State>
@@ -64,7 +75,7 @@
 					  scaleContent="true" width="100" height="100" 
 					  mouseOver="this.currentState='expanded'" mouseOut="this.currentState=''"/>
 			<mx:Label text="$1.99" id="price"/>
-			<mx:Button label="Add To Cart" id="add"/>
+			<mx:Button label="Add To Cart" id="add" click="addToCart(theProducts)"/>
 		</mx:VBox>
 		<mx:VBox height="100%" id="cartBox">
 			<mx:Label text="You Cart Total: $."/>
