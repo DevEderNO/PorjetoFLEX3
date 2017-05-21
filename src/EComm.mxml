@@ -15,7 +15,7 @@
 	</mx:Model>
 	<mx:states>
 		<mx:State name="State1">
-			<mx:SetProperty name="width" target="{canvas1}" value="819"/>
+			<mx:SetProperty name="width" target="{canvas1}" value="100%"/>
 			<mx:SetProperty name="source" target="{image1}" value="../libs/Images/milk.jpg"/>
 			<mx:SetProperty name="scaleContent" target="{image1}" value="true"/>
 			<mx:SetProperty name="width" target="{image1}" value="100"/>

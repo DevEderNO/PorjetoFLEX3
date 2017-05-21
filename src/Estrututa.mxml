@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" 
+				xmlns:fx="http://www.adobe.com/2006/mxml"
+				creationComplete="addToTextArea('Application creationComplete')">
+	<mx:Script>
+		<![CDATA[
+			private function addToTextArea(eventText:String):void
+			{
+				var existingText:String;
+				existingText=reportEvents.text;
+				reportEvents.text=existingText+eventText+"\n";
+			}
+		]]>
+	</mx:Script>
+	<mx:TextArea editable="false" height="100" width="200" borderStyle="solid" id="reportEvents"/>
+	<mx:HBox creationComplete="addToTextArea('HBox creationComplete')">
+		<mx:Label creationComplete="addToTextArea('Label creationComplete')"/>
+		<mx:Button creationComplete="addToTextArea('Button creationComplete')"/>
+	</mx:HBox>
+</mx:Application>

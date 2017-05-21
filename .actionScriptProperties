@@ -18,6 +18,7 @@
     <application path="Dashboard.mxml"/>
     <application path="EComm.mxml"/>
     <application path="EnhancedConstraints.mxml"/>
+    <application path="Estrututa.mxml"/>
   </applications>
   <modules/>
   <buildCSSFiles/>

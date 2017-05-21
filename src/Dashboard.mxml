@@ -6,6 +6,14 @@
 		<mx:LinkButton label="Sales" click="this.currentState='fullSales'"/>
 		<mx:LinkButton label="Categoria" click="this.currentState='fullType'"/>
 		<mx:LinkButton label="Comparison" click="this.currentState='fullComp'"/>
+		<mx:Spacer width="100%"/>
+		<mx:Label text="Start Date"/>
+		<mx:DateField id="startDate"/>
+		<mx:Label text="End Date"/>
+		<mx:DateField id="endtDate"/>
+		<mx:RadioButtonGroup id="grossOrNetGroup"/>
+		<mx:RadioButton id="gross" groupName="grossOrNetGroup" label="Gross Sales" value="GROSS" selected="true"/>
+		<mx:RadioButton id="net" groupName="grossOrNetGroup" label="Net Sales" value="NET"/>
 	</mx:ApplicationControlBar>
 	<mx:states>
 		<mx:State name="State1"/>
